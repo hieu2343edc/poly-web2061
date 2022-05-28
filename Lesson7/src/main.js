@@ -3,12 +3,19 @@ import Navigo from "navigo";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import Home from "./pages/home";
-import { apiGet, apiGetCallback, getImage, getImagePromise } from "./api";
+import {
+  apiGet,
+  apiGetCallback,
+  getImage,
+  getImagePromise
+} from "./api";
 // styles
 import "../style.css";
 
 // Config router
-const router = new Navigo("/", { linksSelector: "a" });
+const router = new Navigo("/", {
+  linksSelector: "a"
+});
 
 router.on({
   "/": function () {
@@ -50,11 +57,11 @@ setTimeout(function () {
 
 // Promise
 getImagePromise('https://picsum.photos/3000/2000')
-.then(data => document.querySelector("#img-01").src = data.url)
-.then(() => getImagePromise('https://picsum.photos/300/200'))
-.then(data => document.querySelector("#img-02").src = data.url)
-.then(() => getImagePromise('https://picsum.photos/300/200'))
-.then(data => document.querySelector("#img-03").src = data.url)
+  .then(data => document.querySelector("#img-01").src = data.url)
+  .then(() => getImagePromise('https://picsum.photos/300/200'))
+  .then(data => document.querySelector("#img-02").src = data.url)
+  .then(() => getImagePromise('https://picsum.photos/300/200'))
+  .then(data => document.querySelector("#img-03").src = data.url)
 
 // getImagePromise('https://picsum.photos/300/200')
 // .then(data => document.querySelector("#img-02").src = data.url)
